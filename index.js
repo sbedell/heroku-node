@@ -11,7 +11,11 @@ app.set('port', (process.env.PORT || 8080));
 
 // Get the basic landing index page
 app.get('/', function(request, response) {
-  response.render('pages/index');
+	var tagline = "Any code of your own that you haven't looked at for six or more months might as well have been written by someone else.";
+
+	response.render('pages/index', {
+		tagline: tagline
+	});
 });
 
 // Display ascii / unicode faces either 5 times
@@ -28,6 +32,10 @@ app.get('/faces', function(request, response) {
 
 app.get('/cool', function(request, response) {
 	response.send(cool());
+});
+ 
+app.get('/about', function(req, res) {
+    res.render('pages/about');
 });
 
 app.listen(app.get('port'), function() {
