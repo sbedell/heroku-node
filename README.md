@@ -28,6 +28,13 @@ or
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
+## Gulp tasks
+- Compile Sass to CSS: `gulp sass`
+- Watch Sass files for changes: `gulp sass:watch`
+- JS Lint your javascript: `gulp jslint`
+- Deftult: `gulp`
+    - runs jshint/jslint, sass compilation, and sass:watch
+
 ## Documentation
 
 For more information about using Node.js on Heroku, see these Dev Center articles:
