@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<section class="securityPage">
+    <div class="col-sm-6 col-xs-12">
+        <h1>Web Security Informational Page</h1>
+        <a target="blank" href="//isc.sans.edu">
+            <img class="img-responsive" 
+            title="Internet Storm Center Infocon Status" 
+            alt="Internet Storm Center Infocon Status" 
+            src="//isc.sans.edu/images/status.gif">
+        </a>
+
+        <h4>SANS DShield and ISC Data</h4>
+        <p>Search IP address for potential attacks against that IP address. Search for port numbers to find out more information on that port.</p>
+        <hr />
+        
+        <input id="ipaddr" class="form-control" type="text" value="" placeholder="IP Address" inputmode="numeric"><br />
+        <button class="btn btn-primary btn-block" type="button" ng-click="searchIpAddr()">Search IP Address</button><br /><br />
+
+        <input id="port" class="form-control" type="number" placeholder="Port Number" min="0" max="65536"><br />
+        <button class="btn btn-primary btn-block" type="button" ng-click="searchPort()">Search Ports</button><br />
+        <button class="btn btn-danger btn-block" type="button" ng-click="clearResults(true)">Clear Results</button><br /><br />
+
+        <!-- Results Section -->
+        <p ng-show="errorMessage">{{errorMessage}}</p>
+
+        <p ng-show="ipInfo.ip.number">Data for IP Address: {{ipInfo.ip.number}}</p>
+        <p ng-show="ipInfo.ip.asname">Name: {{ipInfo.ip.asname}}</p>
+        <p ng-show="ipInfo.ip.ascountry">Country: {{ipInfo.ip.ascountry}}</p>
+        <p ng-show="ipInfo.ip.updated">Last Updated: {{ipInfo.ip.updated}}</p>
+        <p ng-show="ipInfo.ip.attacks">Number of attacks against IP: {{ipInfo.ip.attacks}}</p>
+        <p ng-show="ipInfo.ip.attacks <= 0">No recorded / detected attacks against this IP address.</p>
+        
+        <p ng-show="portInfo.number">Data for port # {{portInfo.number}}</p>
+        <p ng-show="portInfo.services.tcp.name">Port Name / Type: {{portInfo.services.tcp.name}}</p>
+        <p ng-show="portInfo.services.tcp.service">TCP Service: {{portInfo.services.tcp.service}}</p>
+        <p ng-show="portInfo.data.records">Records: {{portInfo.data.records}}</p>
+        <p ng-show="portInfo.data.targets">Targets: {{portInfo.data.targets}}</p>
+        <p ng-show="portInfo.data.sources">Sources: {{portInfo.data.sources}}</p>
+
+        <hr />
+
+        <div>
+            <a href="//arstechnica.com/tech-policy/2013/08/in-aclu-lawsuit-scientist-demolishes-nsa-its-just-metadata-excuse/">"It's just metadata", right?</a>
+            <p>User Agent: {{userAgent}}</p>
+            <p>Monitor Resultion: {{monResolution}}</p>
+            <p>Current browser Resolution: {{currentResolution}}</p>
+            <p>Current Battery Charge: {{batteryInfo}}</p>
+        </div>     
+    </div>
+</section>

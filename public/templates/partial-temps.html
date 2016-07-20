@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<h3>Temperature Conversions</h3>
+<div class="temps">
+    <p>Temperature Conversion. Type in a number and then either F to C or C to F to convert your temperature.</p>
+    <input id="temp" type="number" placeholder="Enter temp here"><br />
+    <button class="btn btn-primary" type="button" ng-click="convertTemp('C')">F to C conversion</button><br />
+    <button class="btn btn-primary" type="button" ng-click="convertTemp('F')">C to F conversion</button>
+    <p ng-show="temperature">{{temperature}} <span ng-hide="hideDegSymbol">&deg;</span></p>
+</div>

@@ -1,0 +1,14 @@
+main {
+  padding-top: 60px;
+  padding-bottom: 40px; }
+
+.temps button {
+  margin: 10px 0; }
+
+@media (min-width: 800px) {
+  .dropdown:hover > .dropdown-menu {
+    display: block; } }
+
+@media (max-width: 800px) {
+  h1 {
+    text-align: center; } }

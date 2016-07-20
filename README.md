@@ -1,46 +1,22 @@
-# node-js-getting-started
+Node-dev
+=====================
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+Nodejs server stuff with Angular.
 
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+#### Development Process
+1. Install dependences:  `npm install`
+2. Run the server: `npm start`
 
-## Running Locally
-
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
-
-```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
-```
-
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-## Deploying to Heroku
-
-```
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
-or
-
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-## Gulp tasks
-- Compile Sass to CSS: `gulp sass`
-- Watch Sass files for changes: `gulp sass:watch`
-- JS Lint your javascript: `gulp jslint`
-- Deftult: `gulp`
-    - runs jshint/jslint, sass compilation, and sass:watch
-
-## Documentation
-
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+#### Gulp Tasks:
+1. __Compile Sass to CSS:__ `gulp sass`
+2. __Monitor Sass files for changes:__ `gulp sass:watch`
+    - Ctrl+c to quit/kill this task
+3. __Sass Linting:__ `gulp sass:lint`
+4. __CSS Linting:__ `gulp csslint`
+5. __Javascript Linting:__ `gulp jslint`
+6. __HTML Linting:__ `gulp htmlhint`
+7. __Running Nodemon with scripts:__ `gulp nodemon`
+8. __Linting:__ `gulp lint`
+    - runs JSlint, HTML Validation, Sass linting, and CSS linting
+9. __Default:__ `gulp`
+    - runs all the linting tasks plus nodemon

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<div class="col-xs-12 col-sm-8">
+    <h1>HTML 5 Vibration Demo</h1>
+
+    <h3>Single Vibration Options</h3>
+    <div class="form-group">
+        <label for="viblen">Vibration Duration (ms):</label>
+        <input class="form-control" id="viblen" value="500" min="0" type="number" required /><br />
+        <button class="btn btn-primary btn-block" type="button" ng-click="singleVibrate()">Single Vibrate</button><br />
+    </div>
+    
+    <h3>Multiple Vibration Options</h3><br />
+
+    <div class="form-group">
+        <label for="vibinterval">Number of Vibrations:</label>
+        <input id="vibinterval" class="form-control" type="number" value="5" min="0" required />
+    </div>
+
+    <div class="form-group">
+        <label for="pauselen">Time Between Vibrations (ms):</label>
+        <input id="pauselen" class="form-control" type="number" value="200" min="0" required />
+    </div>
+    <button class="btn btn-primary btn-block" type="button" ng-click="multipleVibrate()">Multiple Vibrations</button><br />
+    <button class="btn btn-danger btn-block" type="button" ng-click="stopVibrate()">Stop Vibrate</button>
+
+    <p ng-show="errorMessage">{{errorMessage}}</p>
+
+    <hr />
+    <p>Demo page for the new HTML5 Vibration API feature. You can read more about it at the Mozilla Developer Network or at the W3. <br />
+        <a href="//developer.mozilla.org/en-US/docs/Web/Guide/API/Vibration">MDN - Vibration API</a><br />
+        <a href="//www.w3.org/TR/vibration/">W3 Vibration API Spec</a>
+    </p>
+</div>
