@@ -6,8 +6,6 @@ var app = express();
 // set the static files location /public/img will be /img for users
 app.use(express.static(__dirname + '/public'));     
 
-app.set('port', 8080);
-
 // Display ascii / unicode faces either 5 times
 // or the number of times specified in config vars.
 app.get('/faces', function(request, response) {
@@ -29,6 +27,7 @@ app.use(function(err, req, res, next) {
   	res.status(500).send('Error!');
 });
 
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
+var port = process.env.PORT || 5000;
+app.listen(port, function() {
+  console.log('Node app is running on port', port);
 });
