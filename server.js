@@ -1,16 +1,10 @@
 const express = require('express');
 const cool = require('cool-ascii-faces');
-const bodyParser = require('body-parser'); 	// pull information from HTML POST (express4)
 
 var app = express();
 
 // set the static files location /public/img will be /img for users
-app.use(express.static(__dirname + '/public'));
-
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({'extended':'true'})); 
-// parse application/json
-app.use(bodyParser.json());            
+app.use(express.static(__dirname + '/public'));     
 
 app.set('port', 8080);
 
