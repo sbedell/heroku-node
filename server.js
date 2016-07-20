@@ -27,11 +27,6 @@ app.use(function(err, req, res, next) {
 
 	// Sends generic error page to the user
   	res.status(500).send('Error!');
-
-	//console.log("request:");
-	//console.log(req);
-	//console.log("response:");
-	//console.log(res.headersSent);
 });
 
 app.listen(app.get('port'), function() {
