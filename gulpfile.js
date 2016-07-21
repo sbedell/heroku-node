@@ -14,18 +14,18 @@ const paths = {
   js: ['./*.js', './public/js/*.js']
 };
 
-gulp.task('sass', function() {
+gulp.task('sass', () => {
   'use strict';
   return gulp.src(paths.sass)
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./public/styles/css/'));
 });
  
-gulp.task('sass:watch', function() {
+gulp.task('sass:watch', () => {
   gulp.watch(paths.sass, ['sass']);
 });
 
-gulp.task('sass:lint', function() {
+gulp.task('sass:lint', () => {
   'use strict';
   return gulp.src(paths.sass)
     .pipe(sassLint())
@@ -33,13 +33,13 @@ gulp.task('sass:lint', function() {
     .pipe(sassLint.failOnError());
 });
 
-gulp.task('csslint', function() {
+gulp.task('csslint', () => {
   gulp.src(paths.css)
     .pipe(csslint())
     .pipe(csslint.reporter());
 });
 
-gulp.task('jslint', function() {
+gulp.task('jslint', () => {
   'use strict';
   return gulp.src(paths.js)
     .pipe(jshint({
@@ -48,13 +48,13 @@ gulp.task('jslint', function() {
     .pipe(jshint.reporter('default'));
 });
 
-gulp.task('htmlhint', function() {
+gulp.task('htmlhint', () => {
   return gulp.src(paths.html)
 	.pipe(htmlhint())
 	.pipe(htmlhint.reporter());
 });
 
-gulp.task('nodemon', function() {
+gulp.task('nodemon', () => {
   nodemon({
     script: 'server.js',
     ext: 'js scss', //html

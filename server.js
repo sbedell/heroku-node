@@ -8,10 +8,9 @@ app.use(express.static(__dirname + '/public'));
 
 // Display ascii / unicode faces either 5 times
 // or the number of times specified in config vars.
-app.get('/faces', function(request, response) {
+app.get('/faces', (request, response) => {
 	var result = '';
-	var times = process.env.TIMES || 5;
-	for (var i = 0; i < times; i++) {
+	for (var i = 0; i < 5; i++) {
 		result += cool();
 		result += '</br>';
 	}
@@ -27,7 +26,7 @@ app.use(function(err, req, res, next) {
   	res.status(500).send('Error!');
 });
 
-var port = process.env.PORT || 5000;
-app.listen(port, function() {
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
   console.log('Node app is running on port', port);
 });
