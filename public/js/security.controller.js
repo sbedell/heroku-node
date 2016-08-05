@@ -6,7 +6,10 @@ function securityController($scope, securityFactory) {
     $scope.userAgent = navigator.userAgent;
     $scope.monResolution = `${window.screen.availWidth} x ${window.screen.availHeight}`;
     $scope.currentResolution = `${window.innerWidth} x ${window.innerHeight}`;
-    $scope.batteryInfo = navigator.battery ? `${navigator.battery.level * 100}%` : "None";
+    navigator.getBattery().then(battery => {
+        $scope.batteryLevel = (battery.level * 100) + "%";
+        $scope.batteryCharging = battery.charging ? "Yes" : "No";
+    });
 
     toastr.options = {
         "progressBar": true,

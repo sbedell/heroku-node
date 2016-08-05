@@ -15,7 +15,6 @@ const paths = {
 };
 
 gulp.task('sass', () => {
-  'use strict';
   return gulp.src(paths.sass)
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./public/styles/css/'));
@@ -26,7 +25,6 @@ gulp.task('sass:watch', () => {
 });
 
 gulp.task('sass:lint', () => {
-  'use strict';
   return gulp.src(paths.sass)
     .pipe(sassLint())
     .pipe(sassLint.format())
@@ -40,7 +38,6 @@ gulp.task('csslint', () => {
 });
 
 gulp.task('jslint', () => {
-  'use strict';
   return gulp.src(paths.js)
     .pipe(jshint({
       esversion: 6
