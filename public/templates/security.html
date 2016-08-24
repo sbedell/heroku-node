@@ -41,11 +41,15 @@
 
         <div>
             <a href="//arstechnica.com/tech-policy/2013/08/in-aclu-lawsuit-scientist-demolishes-nsa-its-just-metadata-excuse/">"It's just metadata", right?</a>
+            <h4>Browser Info</h4>
             <p>User Agent: {{userAgent}}</p>
             <p>Monitor Resultion: {{monResolution}}</p>
             <p>Current browser Resolution: {{currentResolution}}</p>
+            <h4>Battery Info</h4>
             <p>Current Battery Charge: {{batteryLevel}}</p>
             <p>Battery Charging? {{batteryCharging}}</p>
+            <p ng-show="chargingTime > 0">Estimated charging time: {{chargingTime}}</p>
+            <p ng-show="dischargingTime > 0">Estimated discharging time: {{dischargeTime}}<p>
         </div>     
     </div>
 </section>

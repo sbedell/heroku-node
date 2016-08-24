@@ -6,9 +6,48 @@ function securityController($scope, securityFactory) {
     $scope.userAgent = navigator.userAgent;
     $scope.monResolution = `${window.screen.availWidth} x ${window.screen.availHeight}`;
     $scope.currentResolution = `${window.innerWidth} x ${window.innerHeight}`;
+
     navigator.getBattery().then(battery => {
-        $scope.batteryLevel = (battery.level * 100) + "%";
-        $scope.batteryCharging = battery.charging ? "Yes" : "No";
+        updateLevelInfo();
+        updateChargeInfo();
+        updateChargingInfo();
+        updateDischargingInfo();
+
+        // Add battery event listeners
+        battery.addEventListener('chargingchange', function() {
+            updateChargeInfo();
+        });
+
+        battery.addEventListener('levelchange', function(){
+            updateLevelInfo();
+        });
+
+        battery.addEventListener('chargingtimechange', function() {
+            updateChargingInfo();
+        });
+
+        battery.addEventListener('dischargingtimechange', function() {
+            updateDischargingInfo();
+        });
+
+        // Battery functions to update the scope variables
+        function updateChargeInfo() {
+            $scope.batteryCharging = battery.charging ? "Yes" : "No";
+        }
+        
+        function updateLevelInfo() {
+            $scope.batteryLevel = (battery.level * 100) + "%";
+        }
+
+        
+        function updateChargingInfo() {
+            $scope.chargingTime = battery.chargingTime + " seconds";
+        }
+
+        
+        function updateDischargingInfo() {
+            $scope.dischargingTime = battery.dischargingTime + " seconds";
+        }
     });
 
     toastr.options = {
