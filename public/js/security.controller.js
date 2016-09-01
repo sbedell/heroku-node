@@ -7,56 +7,32 @@ function securityController($scope, securityFactory) {
     $scope.monResolution = `${window.screen.availWidth} x ${window.screen.availHeight}`;
     $scope.currentResolution = `${window.innerWidth} x ${window.innerHeight}`;
 
-    navigator.getBattery().then(battery => {
-        updateLevelInfo();
-        updateChargeInfo();
-        updateChargingInfo();
-        updateDischargingInfo();
+    toastr.options = {
+        "progressBar": true,
+        "positionClass": "toast-top-center",
+        "showDuration": "1000",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
 
-        // Add battery event listeners
-        battery.addEventListener('chargingchange', function() {
-            updateChargeInfo();
-        });
-
-        battery.addEventListener('levelchange', function(){
-            updateLevelInfo();
-        });
-
-        battery.addEventListener('chargingtimechange', function() {
-            updateChargingInfo();
-        });
-
-        battery.addEventListener('dischargingtimechange', function() {
-            updateDischargingInfo();
-        });
-
-        // Battery functions to update the scope variables
-        function updateChargeInfo() {
-            $scope.batteryCharging = battery.charging ? "Yes" : "No";
-        }
-        
-        function updateLevelInfo() {
-            $scope.batteryLevel = (battery.level * 100) + "%";
-        }
-
-        
-        function updateChargingInfo() {
-            $scope.chargingTime = battery.chargingTime + " seconds";
-        }
-
-        
-        function updateDischargingInfo() {
-            $scope.dischargingTime = battery.dischargingTime + " seconds";
-        }
-    });
+    if (navigator.battery) {
+        $scope.batteryLevel = navigator.battery.level * 100;
+        $scope.batteryCharging = navigator.battery.charging? "Yes" : "No";
+    }
 
     $scope.searchIpAddr = function() {
         $scope.clearResults(false);
         var ipAddress = document.getElementById("ipaddr").value;
 
         if (ipAddress.match(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)) {
+            toastr.info("Searching...");
             securityFactory.searchIpAddr(ipAddress).then(function(result) {
                 $scope.ipInfo = result;
+                toastr.clear();
             });
         } else {
             $scope.errorMessage = "Invalid IP (ipv4) address.";
@@ -68,8 +44,10 @@ function securityController($scope, securityFactory) {
         var port = document.getElementById("port").value;
         
         if (port.match(/^\d+$/) && port > 0 && port < 65536) {
+            toastr.info("Searching...");
             securityFactory.searchPort(port).then(function(result) {
                 $scope.portInfo = result;
+                toastr.clear();
             });
         } else {
             $scope.errorMessage = "Invalid port number.";
