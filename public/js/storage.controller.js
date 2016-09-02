@@ -16,13 +16,13 @@ function storageController() {
     }
 
     // ~~~~~ Adding Event Listeners ~~~~~
-    bgColorSelector.addEventListener("change", () => {
+    bgColorSelector.addEventListener("change", function() {
         var newBG = document.getElementById("bgcolor").value;
         localStorage.setItem("bgColor", newBG);
         changeBackgroundColor(newBG);
     });
 
-    document.getElementById("deleteBtn").addEventListener("click", () => {
+    document.getElementById("deleteBtn").addEventListener("click", function() {
         if (confirm("Are you sure you want to clear storage?")) {
             localStorage.clear();
             sessionStorage.clear();
