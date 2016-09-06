@@ -4,32 +4,29 @@ securityController.$inject = ['$scope', 'securityFactory'];
 
 function securityController($scope, securityFactory) {
     $scope.userAgent = navigator.userAgent;
-    $scope.monResolution = `${window.screen.availWidth} x ${window.screen.availHeight}`;
-    $scope.currentResolution = `${window.innerWidth} x ${window.innerHeight}`;
-
-    toastr.options = {
-        "progressBar": true,
-        "positionClass": "toast-top-center",
-        "showDuration": "1000",
-        "hideDuration": "1000",
-        "timeOut": "5000",
-        "showEasing": "swing",
-        "hideEasing": "linear",
-        "showMethod": "fadeIn",
-        "hideMethod": "fadeOut"
-    };
+    $scope.monResolution = window.screen.availWidth + ' x ' + window.screen.availHeight;
+    $scope.currentResolution = window.innerWidth + ' x ' + window.innerHeight;
 
     if (navigator.battery) {
         $scope.batteryLevel = navigator.battery.level * 100;
         $scope.batteryCharging = navigator.battery.charging? "Yes" : "No";
     }
 
+    toastr.options = {
+        "progressBar": true,
+        "positionClass": "toast-top-center",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
+
     $scope.searchIpAddr = function() {
         $scope.clearResults(false);
         var ipAddress = document.getElementById("ipaddr").value;
 
         if (ipAddress.match(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)) {
-            toastr.info("Searching...");
+            toastr.info("Searching IP Address...");
             securityFactory.searchIpAddr(ipAddress).then(function(result) {
                 $scope.ipInfo = result;
                 toastr.clear();
@@ -44,7 +41,7 @@ function securityController($scope, securityFactory) {
         var port = document.getElementById("port").value;
         
         if (port.match(/^\d+$/) && port > 0 && port < 65536) {
-            toastr.info("Searching...");
+            toastr.info("Searching Port...");
             securityFactory.searchPort(port).then(function(result) {
                 $scope.portInfo = result;
                 toastr.clear();

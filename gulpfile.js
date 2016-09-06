@@ -39,9 +39,7 @@ gulp.task('csslint', function() {
 
 gulp.task('jslint', function() {
   return gulp.src(paths.js)
-    .pipe(jshint({
-      esversion: 6
-    }))
+    .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
 
