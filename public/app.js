@@ -5,12 +5,12 @@ angular.module('steveApp', ['ui.router'])
     $stateProvider
     .state('home', {
         url: '/home',
-        templateUrl: 'templates/partial-home.html'
+        templateUrl: 'templates/home/partial-home.html'
     })
 
     .state('home.list', {
         url: '/list',
-        templateUrl: 'templates/partial-home-list.html',
+        templateUrl: 'templates/home/partial-home-list.html',
         controller: function($scope) {
             $scope.dogs = ['Bernese', 'Husky', 'Lab'];
         }
@@ -27,14 +27,14 @@ angular.module('steveApp', ['ui.router'])
         views: {
             //relatively named?
             '': {
-                templateUrl: 'templates/multipleViewsPage.html'
+                templateUrl: 'templates/demo/multipleViewsPage.html'
             },
             'columnOne@demo': {
-                templateUrl: 'templates/partial-temps.html',
+                templateUrl: 'templates/demo/partial-temps.html',
                 controller: 'appController'
             },
             'columnTwo@demo': {
-                templateUrl: 'templates/table-data.html',
+                templateUrl: 'templates/demo/table-data.html',
                 controller: 'appController'
             }
         } 
