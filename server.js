@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express');
 const cool = require('cool-ascii-faces');
 
@@ -7,12 +9,10 @@ var app = express();
 app.use(express.static(__dirname + '/public'));     
 
 // Display ascii / unicode faces either 5 times
-// or the number of times specified in config vars.
 app.get('/faces', (request, response) => {
-	var result = '';
-	for (var i = 0; i < 5; i++) {
-		result += cool();
-		result += '</br>';
+	var result = [];
+	for (let i = 0; i < 10; i++) {
+		result.push(cool());
 	}
 	response.send(result);
 });
@@ -27,6 +27,6 @@ app.use(function(err, req, res, next) {
 });
 
 const port = process.env.PORT || 8080;
-app.listen(port, () => {
+app.listen(port, function() {
   console.log('Node app is running on port', port);
 });

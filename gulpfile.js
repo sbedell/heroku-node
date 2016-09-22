@@ -1,3 +1,5 @@
+'use strict';
+
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const jshint = require('gulp-jshint');

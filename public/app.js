@@ -20,6 +20,20 @@ angular.module('steveApp', ['ui.router'])
         url: '/paragraph',
         template: 'I could sure use a break right now.'
     })
+
+    .state('home.faces', {
+        url: '/faces',
+        templateUrl: 'templates/home/partial-asciifaces.html',
+        controller: function($http, $scope) {
+            // https://warm-dusk-92548.herokuapp.com/faces
+            // http://localhost:8080/faces
+            $http.get('https://warm-dusk-92548.herokuapp.com/faces').then(function(response) {
+                $scope.faces = response.data;
+            }).catch(function(error) {
+                console.log("Error " + String(error));
+            });
+        }
+    })
     
     // ABOUT PAGE AND MULTIPLE NAMED VIEWS
     .state('demo', {
@@ -73,4 +87,10 @@ angular.module('steveApp', ['ui.router'])
         templateUrl: 'templates/vibrate.html',
         controller: 'vibrateController'
     });
+    
+    // .state('canada', {
+    //     url: '/ohcanada',
+    //     templateUrl: 'templates/canada.html',
+    //     controller: 'canadaController'
+    // });
 });
