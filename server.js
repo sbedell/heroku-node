@@ -9,7 +9,7 @@ var app = express();
 app.use(express.static(__dirname + '/public'));     
 
 // Display ascii / unicode faces either 5 times
-app.get('/faces', (request, response) => {
+app.get('/faces', function (request, response) {
 	var result = [];
 	for (let i = 0; i < 10; i++) {
 		result.push(cool());
