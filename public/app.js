@@ -30,7 +30,7 @@ angular.module('steveApp', ['ui.router'])
             $http.get('https://warm-dusk-92548.herokuapp.com/faces').then(function(response) {
                 $scope.faces = response.data;
             }).catch(function(error) {
-                console.log("Error " + String(error));
+                console.log("Error " + JSON.stringify(error));
             });
         }
     })

@@ -8,6 +8,7 @@ const csslint = require('gulp-csslint');
 const htmlhint = require('gulp-htmlhint');
 const nodemon = require('gulp-nodemon');
 const path = require('path');
+const testServer = require('karma').Server;
 
 const paths = {
   html: ['./public/views/**/*.html'],
@@ -64,6 +65,13 @@ gulp.task('nodemon', function() {
       return tasks;
     }
   });
+});
+
+gulp.task('test', function(done) {
+  return new testServer({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
 });
 
 gulp.task('lint', ['jslint', 'htmlhint', 'sass:lint', 'csslint']);
