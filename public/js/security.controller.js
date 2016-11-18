@@ -8,7 +8,7 @@ function securityController($scope, securityFactory) {
     $scope.currentResolution = window.innerWidth + ' x ' + window.innerHeight;
 
     navigator.getBattery().then(function(battery) {
-        $scope.batteryLevel = (battery.level * 100) + "%";
+        $scope.batteryLevel = battery.level * 100;
         $scope.batteryCharging = battery.charging ? "Yes" : "No";
     });
 
