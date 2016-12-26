@@ -10,7 +10,6 @@ function storageController() {
 
     function changeBackgroundColor(color) {
         if (typeof color === "string") {
-            //document.body.style.backgroundColor = color;
             document.getElementById("storageDemo").style.backgroundColor = color;
         }
     }
