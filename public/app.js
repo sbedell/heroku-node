@@ -25,9 +25,7 @@ angular.module('steveApp', ['ui.router'])
         url: '/faces',
         templateUrl: 'templates/home/partial-asciifaces.html',
         controller: function($http, $scope) {
-            // https://warm-dusk-92548.herokuapp.com/faces
-            // http://localhost:8080/faces
-            $http.get('https://warm-dusk-92548.herokuapp.com/faces').then(function(response) {
+            $http.get('/faces').then(function(response) {
                 $scope.faces = response.data;
             }).catch(function(error) {
                 console.log("Error " + JSON.stringify(error));
