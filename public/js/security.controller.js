@@ -7,11 +7,6 @@ function securityController($scope, securityFactory) {
     $scope.monResolution = window.screen.availWidth + ' x ' + window.screen.availHeight;
     $scope.currentResolution = window.innerWidth + ' x ' + window.innerHeight;
 
-    navigator.getBattery().then(function(battery) {
-        $scope.batteryLevel = battery.level * 100;
-        $scope.batteryCharging = battery.charging ? "Yes" : "No";
-    });
-
     toastr.options = {
         "progressBar": true,
         "positionClass": "toast-top-center",
