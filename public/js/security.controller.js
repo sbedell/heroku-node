@@ -18,7 +18,7 @@ function securityController($scope, securityFactory) {
 
     $scope.searchIpAddr = function() {
         $scope.clearResults(false);
-        var ipAddress = document.getElementById("ipaddr").value;
+        var ipAddress = document.getElementById("ipaddr").value.trim();
 
         if (ipAddress.match(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)) {
             toastr.info("Searching IP Address...");
