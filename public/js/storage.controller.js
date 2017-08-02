@@ -24,7 +24,6 @@ function storageController() {
     document.getElementById("deleteBtn").addEventListener("click", function confirmClear() {
         if (confirm("Are you sure you want to clear storage?")) {
             localStorage.clear();
-            sessionStorage.clear();
         }
     });
 }

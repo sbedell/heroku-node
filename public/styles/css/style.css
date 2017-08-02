@@ -1,6 +1,9 @@
 main {
-  padding-top: 60px;
-  padding-bottom: 40px; }
+  padding-top: 60px; }
+
+#storageDemo {
+  width: 100%;
+  margin: auto; }
 
 .temps button {
   margin: 10px 0; }

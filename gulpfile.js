@@ -4,7 +4,6 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 const jshint = require('gulp-jshint');
 const sassLint = require('gulp-sass-lint');
-const csslint = require('gulp-csslint');
 const htmlhint = require('gulp-htmlhint');
 const nodemon = require('gulp-nodemon');
 const path = require('path');
@@ -13,14 +12,14 @@ const testServer = require('karma').Server;
 const paths = {
   html: ['./public/views/**/*.html'],
   sass: './public/styles/sass/*.scss',
-  css: './public/styles/css/*.css',
+  css: './public/styles/css/',
   js: ['./*.js', './public/js/*.js']
 };
 
 gulp.task('sass', function() {
   return gulp.src(paths.sass)
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./public/styles/css/'));
+    .pipe(gulp.dest(paths.css));
 });
  
 gulp.task('sass:watch', function() {
@@ -29,15 +28,16 @@ gulp.task('sass:watch', function() {
 
 gulp.task('sass:lint', function() {
   return gulp.src(paths.sass)
-    .pipe(sassLint())
+    .pipe(sassLint({
+      rules: {
+        // Rules to skip:
+        'property-sort-order': 0,
+        'hex-notation': 0,
+        'indentation': 0
+      }
+    }))
     .pipe(sassLint.format())
     .pipe(sassLint.failOnError());
-});
-
-gulp.task('csslint', function() {
-  gulp.src(paths.css)
-    .pipe(csslint())
-    .pipe(csslint.reporter());
 });
 
 gulp.task('jslint', function() {
@@ -74,6 +74,6 @@ gulp.task('test', function(done) {
   }, done).start();
 });
 
-gulp.task('lint', ['jslint', 'htmlhint', 'sass:lint', 'csslint']);
+gulp.task('lint', ['jslint', 'htmlhint', 'sass:lint']);
 
 gulp.task('default', ['lint', 'nodemon']);
