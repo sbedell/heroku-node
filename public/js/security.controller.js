@@ -7,6 +7,11 @@ function securityController($scope, securityFactory) {
     $scope.monResolution = window.screen.availWidth + ' x ' + window.screen.availHeight;
     $scope.currentResolution = window.innerWidth + ' x ' + window.innerHeight;
 
+    // functions:
+    $scope.searchIpAddr = searchIpAddress;
+    $scope.searchPort = searchPortNumber;
+    $scope.clearResults = clearResults;
+
     toastr.options = {
         "progressBar": true,
         "positionClass": "toast-top-center",
@@ -16,8 +21,8 @@ function securityController($scope, securityFactory) {
         "hideMethod": "fadeOut"
     };
 
-    $scope.searchIpAddr = function() {
-        $scope.clearResults(false);
+    function searchIpAddress() {
+        clearResults(false);
         var ipAddress = document.getElementById("ipaddr").value.trim();
 
         if (ipAddress.match(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)) {
@@ -31,8 +36,8 @@ function securityController($scope, securityFactory) {
         }
     };
 
-    $scope.searchPort = function() {
-        $scope.clearResults(false);
+    function searchPortNumber() {
+        clearResults(false);
         var port = document.getElementById("port").value;
         
         if (port.match(/^\d+$/) && port > 0 && port < 65536) {
@@ -46,7 +51,7 @@ function securityController($scope, securityFactory) {
         }
     };
 
-    $scope.clearResults = function(clearInputs) {
+    function clearResults(clearInputs) {
         $scope.ipInfo = null;
         $scope.portInfo = null;
         $scope.errorMessage = null;
