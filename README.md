@@ -1,7 +1,7 @@
-Node-dev
+Heroku-node
 =====================
 
-Nodejs server stuff with Angular.
+Nodejs server with Angular as a front end.
 
 #### Development Process
 1. Install dependences:  `npm install`
@@ -11,12 +11,10 @@ Nodejs server stuff with Angular.
 1. __Compile Sass to CSS:__ `gulp sass`
 2. __Monitor Sass files for changes:__ `gulp sass:watch`
     - Ctrl+c to quit/kill this task
-3. __Sass Linting:__ `gulp sass:lint`
-4. __CSS Linting:__ `gulp csslint`
-5. __Javascript Linting:__ `gulp jslint`
-6. __HTML Linting:__ `gulp htmlhint`
-7. __Running Nodemon with scripts:__ `gulp nodemon`
-8. __Linting:__ `gulp lint`
-    - runs JSlint, HTML Validation, Sass linting, and CSS linting
-9. __Default:__ `gulp`
+3. __Javascript Linting:__ `gulp jslint`
+4. __HTML Linting:__ `gulp htmlhint`
+5. __Linting:__ `gulp lint`
+    - runs JSlint and HTML Validation/Linting
+6. __Running Nodemon with scripts:__ `gulp nodemon`
+7. __Default:__ `gulp`
     - runs all the linting tasks plus nodemon

@@ -34,7 +34,7 @@ function securityController($scope, securityFactory) {
         } else {
             $scope.errorMessage = "Invalid IP (ipv4) address.";
         }
-    };
+    }
 
     function searchPortNumber() {
         clearResults(false);
@@ -49,7 +49,7 @@ function securityController($scope, securityFactory) {
         } else {
             $scope.errorMessage = "Invalid port number.";
         }
-    };
+    }
 
     function clearResults(clearInputs) {
         $scope.ipInfo = null;
@@ -60,5 +60,5 @@ function securityController($scope, securityFactory) {
             document.getElementById("port").value = "";
             document.getElementById("ipaddr").value = "";
         }
-    }; 
+    }
 }

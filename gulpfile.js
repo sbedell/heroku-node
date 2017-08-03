@@ -3,7 +3,6 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const jshint = require('gulp-jshint');
-const sassLint = require('gulp-sass-lint');
 const htmlhint = require('gulp-htmlhint');
 const nodemon = require('gulp-nodemon');
 const path = require('path');
@@ -24,20 +23,6 @@ gulp.task('sass', function() {
  
 gulp.task('sass:watch', function() {
   gulp.watch(paths.sass, ['sass']);
-});
-
-gulp.task('sass:lint', function() {
-  return gulp.src(paths.sass)
-    .pipe(sassLint({
-      rules: {
-        // Rules to skip:
-        'property-sort-order': 0,
-        'hex-notation': 0,
-        'indentation': 0
-      }
-    }))
-    .pipe(sassLint.format())
-    .pipe(sassLint.failOnError());
 });
 
 gulp.task('jslint', function() {
@@ -74,6 +59,6 @@ gulp.task('test', function(done) {
   }, done).start();
 });
 
-gulp.task('lint', ['jslint', 'htmlhint', 'sass:lint']);
+gulp.task('lint', ['jslint', 'htmlhint']);
 
 gulp.task('default', ['lint', 'nodemon']);

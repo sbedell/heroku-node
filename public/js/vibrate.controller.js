@@ -3,13 +3,17 @@ angular.module('steveApp').controller('vibrateController', vibrateController);
 vibrateController.$inject = ['$scope'];
 
 function vibrateController($scope) {
-    $scope.stopVibrate = function() {
+    $scope.multipleVibrate = multipleVibrations;
+    $scope.singleVibrate = singleVibration;
+    $scope.stopVibrate = stopVibrations;
+
+    function stopVibrations() {
         navigator.vibrate(0);
         $scope.errorMessage = null;
-    };
+    }
 
     // Vibrates once, duration determined by user.
-    $scope.singleVibrate = function() {
+    function singleVibration() {
         var duration = document.getElementById("viblen").value;
         // Validate user input (for numbers)
         if (duration.match(/^\d+$/)) {
@@ -18,11 +22,11 @@ function vibrateController($scope) {
         } else {
             $scope.errorMessage = "Error, please input a number for Vibration Duration.";
         }
-    };
+    }
 
     // Start persistent vibration at given duration and interval
     // Assumes a number value is given
-    $scope.multipleVibrate = function() {
+    function multipleVibrations() {
         var vibArray = [];
         var duration = document.getElementById("viblen").value;
         var amountOfVibs = document.getElementById("vibinterval").value;
@@ -38,5 +42,5 @@ function vibrateController($scope) {
             }
             navigator.vibrate(vibArray);
         }
-    };
+    }
 }
