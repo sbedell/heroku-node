@@ -1,17 +1,29 @@
 main {
-  padding-top: 60px; }
+  padding-top: 60px; 
+}
 
 #storageDemo {
   width: 100%;
-  margin: auto; }
+  margin: auto; 
+}
 
 .temps button {
-  margin: 10px 0; }
+  margin: 10px 0; 
+}
+
+.navbar-toggle {
+  float: left;
+  margin-left: 15px;
+}
 
 @media (min-width: 800px) {
   .dropdown:hover > .dropdown-menu {
-    display: block; } }
+    display: block; 
+  } 
+}
 
 @media (max-width: 800px) {
   h1 {
-    text-align: center; } }
+    text-align: center; 
+  } 
+}

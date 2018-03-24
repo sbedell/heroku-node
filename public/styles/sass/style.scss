@@ -12,6 +12,11 @@ main {
     margin: 10px 0;
 }
 
+.navbar-toggle {
+    float: left;
+    margin-left: 15px;
+}
+
 // Open dropdowns on hover instead of click on pages larger than 800px.
 @media (min-width: 800px) {
     .dropdown:hover > .dropdown-menu {
