@@ -76,7 +76,17 @@
 
     <footer class="container">
         <hr />
-        <p>&copy; Steve Bedell 2016. Built using Node.js, Angular, and Bootstrap.</p>
+        <p>&copy; Steve Bedell 2016-18. Built using Node.js, Angular, and Bootstrap.</p>
     </footer>
+
+    <script>
+        $(function() {
+            $(document).on('click', '.navbar-collapse.in', function(event) {
+                if ($(event.target).is('a:not(".dropdown-toggle")')) {
+                    $(this).collapse('hide');
+                }
+             });
+        });
+    </script>
 </body>
 </html>
