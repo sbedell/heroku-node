@@ -17,10 +17,10 @@
     "helmet": "^3.15.0"
   },
   "devDependencies": {
-    "jasmine": "^3.3.0",
+    "jasmine": "^3.3.1",
     "jasmine-reporters": "^2.3.2",
-    "karma": "^3.1.1",
-    "karma-jasmine": "^1.1.2",
+    "karma": "^4.0.0",
+    "karma-jasmine": "^2.0.1",
     "karma-nyan-reporter": "^0.2.5",
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-spec-reporter": "0.0.32"
