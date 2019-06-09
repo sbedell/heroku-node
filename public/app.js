@@ -52,43 +52,28 @@ angular.module('steveApp', ['ui.router'])
         } 
     })
 
-    .state('resume', {
-        url: '/resume',
-        templateUrl: 'templates/resumePage.html'
-    })
-
     .state('security', {
         url: '/security',
         templateUrl: 'templates/security.html',
         controller: 'securityController'
     })
-
     .state('soundboard', {
         url: '/soundboard',
         templateUrl: 'templates/soundboard.html'
     })
-    
     .state('soundcloud', {
         url: '/soundcloud',
         templateUrl: 'templates/soundcloud.html',
         controller: 'soundcloudController'
     })
-    
     .state('storageDemo', {
         url: '/storagedemo',
         templateUrl: 'templates/storagedemo.html',
         controller: 'storageController'
     })
-    
     .state('vibrateDemo', {
         url: '/vibrate',
         templateUrl: 'templates/vibrate.html',
         controller: 'vibrateController'
     });
-    
-    // .state('canada', {
-    //     url: '/ohcanada',
-    //     templateUrl: 'templates/canada.html',
-    //     controller: 'canadaController'
-    // });
 });
