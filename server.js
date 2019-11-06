@@ -4,7 +4,7 @@ const express = require('express');
 const coolAsciiFaces = require('cool-ascii-faces');
 const helmet = require('helmet');
 
-var app = express();
+let app = express();
 
 app.use(helmet());
 // set the static files location; /public/img will be /img for users
@@ -12,7 +12,7 @@ app.use(express.static(__dirname + '/public'));
 
 // Display ascii / unicode faces either 5 times
 app.get('/faces', function(request, response) {
-	var result = [];
+	let result = [];
 	for (let i = 0; i < 10; i++) {
 		result.push(coolAsciiFaces());
 	}

@@ -14,7 +14,7 @@ function vibrateController($scope) {
 
     // Vibrates once, duration determined by user.
     function singleVibration() {
-        var duration = document.getElementById("viblen").value;
+        let duration = document.getElementById("viblen").value;
         // Validate user input (for numbers)
         if (duration.match(/^\d+$/)) {
             $scope.errorMessage = null;
@@ -27,16 +27,16 @@ function vibrateController($scope) {
     // Start persistent vibration at given duration and interval
     // Assumes a number value is given
     function multipleVibrations() {
-        var vibArray = [];
-        var duration = document.getElementById("viblen").value;
-        var amountOfVibs = document.getElementById("vibinterval").value;
-        var pauseLength = document.getElementById("pauselen").value;
+        let vibArray = [];
+        let duration = document.getElementById("viblen").value;
+        let amountOfVibs = document.getElementById("vibinterval").value;
+        let pauseLength = document.getElementById("pauselen").value;
 
         if ((!duration.match(/^\d+$/)) || (!amountOfVibs.match(/^\d+$/))) {
             $scope.errorMessage = "Error, please input a number in both fields.";
         } else {
             $scope.errorMessage = null;
-            for (var i = 0; i < amountOfVibs; i++) {
+            for (let i = 0; i < amountOfVibs; i++) {
                 vibArray.push(duration);
                 vibArray.push(pauseLength);
             }

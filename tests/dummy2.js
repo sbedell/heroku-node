@@ -4,11 +4,11 @@ const url = require('url');
 // ----------------------------------------------
 
 console.time('100-elements');
-    for (var i = 0; i < 100; i++) { }
+    for (let i = 0; i < 100; i++) { }
 console.timeEnd('100-elements');
 
-var qrystr = querystring.parse('foo=bar&abc=xyz&abc=123');
+let qrystr = querystring.parse('foo=bar&abc=xyz&abc=123');
 console.log(qrystr);
 
-var hmac = crypto.createHmac('sha256', 'a secret thing');
+let hmac = crypto.createHmac('sha256', 'a secret thing');
 console.log(hmac.digest());

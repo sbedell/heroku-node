@@ -25,7 +25,7 @@ function appController($scope) {
     ];
 
     $scope.convertTemp = function(type) {
-        var temp = parseInt(document.getElementById("temp").value);
+        let temp = parseInt(document.getElementById("temp").value);
         
         if (isNaN(temp)) {
             $scope.temperature = "Error, please enter a number.";

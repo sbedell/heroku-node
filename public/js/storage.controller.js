@@ -1,7 +1,7 @@
 angular.module('steveApp').controller('storageController', storageController);
 
 function storageController() {
-    var bgColorSelector = document.getElementById("bgcolor");
+    let bgColorSelector = document.getElementById("bgcolor");
 
     if (localStorage.getItem("bgColor")) {
         bgColorSelector.value = localStorage.getItem("bgColor");
@@ -16,7 +16,7 @@ function storageController() {
 
     // ~~~~~ Adding Event Listeners ~~~~~
     bgColorSelector.addEventListener("change", function changeColor() {
-        var newBG = document.getElementById("bgcolor").value;
+        let newBG = document.getElementById("bgcolor").value;
         localStorage.setItem("bgColor", newBG);
         changeBackgroundColor(newBG);
     });

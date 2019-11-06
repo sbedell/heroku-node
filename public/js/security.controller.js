@@ -23,7 +23,7 @@ function securityController($scope, securityFactory) {
 
     function searchIpAddress() {
         clearResults(false);
-        var ipAddress = document.getElementById("ipaddr").value.trim();
+        let ipAddress = document.getElementById("ipaddr").value.trim();
 
         if (ipAddress.match(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)) {
             toastr.info("Searching IP Address...");
@@ -38,11 +38,11 @@ function securityController($scope, securityFactory) {
 
     function searchPortNumber() {
         clearResults(false);
-        var port = document.getElementById("port").value;
+        let port = document.getElementById("port").value;
         
         if (port.match(/^\d+$/) && port > 0 && port < 65536) {
             toastr.info("Searching Port...");
-            securityFactory.searchPort(port).then(function(result) {
+            securityFactory.searchPort(port).then(result => {
                 $scope.portInfo = result;
                 toastr.clear();
             });

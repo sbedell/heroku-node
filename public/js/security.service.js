@@ -9,12 +9,12 @@ function securityFactory($http) {
     };
     
     function searchPortNumber(portNumber) {
-        var url = 'https://www.dshield.org/api/port/' + portNumber + '?json';
+        let url = 'https://www.dshield.org/api/port/' + portNumber + '?json';
         return httpRequest(url);
     }
 
     function searchIpAddress(ipAddress) {
-        var url = 'https://www.dshield.org/api/ip/' + ipAddress + '?json';
+        let url = 'https://www.dshield.org/api/ip/' + ipAddress + '?json';
         return httpRequest(url);
     }
 
