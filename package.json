@@ -21,7 +21,7 @@
     "jasmine": "^3.5.0",
     "jasmine-reporters": "^2.3.2",
     "karma": "^4.4.1",
-    "karma-jasmine": "^2.0.1",
+    "karma-jasmine": "^3.1.1",
     "karma-nyan-reporter": "^0.2.5",
     "karma-spec-reporter": "0.0.32"
   }
